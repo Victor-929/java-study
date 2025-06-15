@@ -2,7 +2,7 @@ package com.itheima.controller;
 
 import com.itheima.pojo.User;
 import com.itheima.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,8 +37,27 @@ public class UserController {
 
     }*/
 
-    @Autowired
+    //方式一：属性注入
+//    @Qualifier("userServiceImpl")
+//    @Autowired
+//    private UserService  userService;
+    @Resource(name = "userServiceImpl2")
     private UserService  userService;
+
+    //方式二：构造器注入
+//    @Autowired //如果当前类中只存在一个构造函数，那么@Autowired可以省略
+//    private final UserService  userService;
+//    public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
+
+    //方式三：setter注入
+//    private UserService  userService;
+//    @Autowired
+//    public void setUserService(UserService userService) {
+//        this.userService = userService;
+//    }
+
     @RequestMapping("/list")
     public List<User> list() throws Exception {
         //1、调用service，获取数据

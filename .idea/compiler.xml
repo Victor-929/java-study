@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="maven-project01" />
+        <module name="jdbc-demo" />
         <module name="maven-project" />
         <module name="springboot-web-quickstart" />
       </profile>

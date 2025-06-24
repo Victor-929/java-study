@@ -21,11 +21,22 @@
         </processorPath>
         <module name="springboot-web-01" />
       </profile>
+      <profile name="Annotation profile for springboot-mybatis-quickstart" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="D:/LenovoSoftstore/Maven/maven-repository/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+          <entry name="D:/LenovoSoftstore/Maven/maven-repository/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="springboot-mybatis-quickstart" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot-mybatis-quickstart" options="-parameters" />
       <module name="springboot-web-01" options="-parameters" />
       <module name="springboot-web-quickstart" options="-parameters" />
     </option>

@@ -55,4 +55,13 @@ class SpringbootMybatisQuickstartApplicationTests {
         user.setAge(18);
         userMapper.update(user);
     }
+
+    /**
+     * 测试根据用户名和密码查询用户
+     */
+    @Test
+    public void testFindByUsernameAndPassword() {
+        User user = userMapper.findByUsernameAndPassword("zhouyu", "123456");
+        System.out.println(user);
+    }
 }

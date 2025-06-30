@@ -6,11 +6,11 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper//应用程序在运行时，会自动的为该接口创建一个实现类对象（代理对象），并且会自动将该实现类对象存入IOC容器
-public interface UserMapper {
+public interface  UserMapper {
     /**
      * 查询所有用户
      */
-    @Select("select id, username, password, name, age from user")
+//    @Select("select id, username, password, name, age from user")
     public List<User> findAll();
     /**
      * 根据id删除用户
@@ -30,4 +30,11 @@ public interface UserMapper {
      */
     @Update("update user set username = #{username}, password = #{password}, name = #{name}, age = #{age} where id = #{id}")
     public void update(User user);
+
+    /**
+     * 根据用户名和密码查询用户信息
+     */
+    @Select("select id, username, password, name, age from user where username = #{username} and password = #{password}")
+    public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
 }
